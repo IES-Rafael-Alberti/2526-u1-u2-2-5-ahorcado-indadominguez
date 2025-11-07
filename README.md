@@ -1,3 +1,5 @@
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/8lAzcOMh)
+[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=21506658&assignment_repo_type=AssignmentRepo)
 # Práctica: El Juego del Ahorcado
 
 ## Descripción
@@ -76,25 +78,26 @@ Funciones útiles de Python para strings:
 
 ## Estructura del Proyecto
 
-```
 2526_PRO_u2_ahorcado/
 │
-├── README.md                 # Este archivo
+├── README.md # Este archivo
 ├── src/
-│   └── ahorcado.py          # Archivo principal del juego
+│ └── ahorcado.py # Archivo principal del juego
 ├── docs/
-│   └── planificacion.md     # Documento de planificación (opcional)
+│ └── planificacion.md # Documento de planificación (opcional)
 └── ejemplos/
-    └── ejemplo_ejecucion.txt # Ejemplo de cómo debería funcionar
-```
+└── ejemplo_ejecucion.txt # Ejemplo de cómo debería funcionar
+
 
 ## Ejemplo de Ejecución
 
-```
+
+
 === JUEGO DEL AHORCADO ===
 
-Jugador 1: Introduce la palabra a adivinar (mínimo 5 letras): 
-> PYTHON
+Jugador 1: Introduce la palabra a adivinar (mínimo 5 letras):
+
+PYTHON
 
 [Limpiando pantalla...]
 
@@ -128,7 +131,7 @@ Letras usadas: ['A', 'P', 'Y']
 [...]
 
 ¡FELICIDADES! Has adivinado la palabra: PYTHON
-```
+
 
 ## Notas Importantes
 
@@ -148,3 +151,5 @@ Profesor: revilofe
 
 ## Licencia
 Material educativo para uso académico
+
+## Debug
