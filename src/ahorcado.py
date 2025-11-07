@@ -29,11 +29,6 @@ def solicitar_palabra():
     Returns:
         str: La palabra a adivinar en mayúsculas
     """
-    # TODO: Implementar la función
-    # - Usar un bucle while para repetir hasta que la palabra sea válida
-    # - Verificar que tenga al menos 5 caracteres (len())
-    # - Verificar que solo contenga letras (isalpha())
-    # - Convertir a mayúsculas (upper())
 
     palabra_valida = False
 
@@ -61,12 +56,6 @@ def solicitar_letra(letras_usadas):
     Returns:
         str: La letra introducida en mayúsculas
     """
-    # TODO: Implementar la función
-    # - Usar un bucle while para repetir hasta que la letra sea válida
-    # - Verificar que sea solo un carácter (len() == 1)
-    # - Verificar que sea una letra (isalpha())
-    # - Verificar que no esté en letras_usadas (operador 'in')
-    # - Convertir a mayúsculas (upper())
 
     letra_valida = False
 
@@ -95,11 +84,16 @@ def mostrar_estado(palabra_oculta, intentos, letras_usadas):
         intentos (int): Número de intentos restantes
         letras_usadas (list): Lista de letras ya usadas
     """
-    # TODO: Implementar la función
-    # - Imprimir intentos restantes
-    # - Imprimir la palabra con espacios entre caracteres
-    # - Imprimir las letras usadas
-    pass
+    print("\n==================================")
+    print(f"Intentos restantes: {intentos}")
+    print(f"Palabra: {' '.join(palabra_oculta)}")
+    
+    if len(letras_usadas) == 0:
+        print("Letras usadas: ninguna")
+    else:
+        print("Letras usadas:", ", ".join(letras_usadas))
+    
+    print("==================================\n")
 
 
 def actualizar_palabra_oculta(palabra, palabra_oculta, letra):
