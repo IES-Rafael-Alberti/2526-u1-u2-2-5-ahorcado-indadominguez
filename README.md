@@ -78,25 +78,26 @@ Funciones útiles de Python para strings:
 
 ## Estructura del Proyecto
 
-```
 2526_PRO_u2_ahorcado/
 │
-├── README.md                 # Este archivo
+├── README.md # Este archivo
 ├── src/
-│   └── ahorcado.py          # Archivo principal del juego
+│ └── ahorcado.py # Archivo principal del juego
 ├── docs/
-│   └── planificacion.md     # Documento de planificación (opcional)
+│ └── planificacion.md # Documento de planificación (opcional)
 └── ejemplos/
-    └── ejemplo_ejecucion.txt # Ejemplo de cómo debería funcionar
-```
+└── ejemplo_ejecucion.txt # Ejemplo de cómo debería funcionar
+
 
 ## Ejemplo de Ejecución
 
-```
+
+
 === JUEGO DEL AHORCADO ===
 
-Jugador 1: Introduce la palabra a adivinar (mínimo 5 letras): 
-> PYTHON
+Jugador 1: Introduce la palabra a adivinar (mínimo 5 letras):
+
+PYTHON
 
 [Limpiando pantalla...]
 
@@ -130,7 +131,7 @@ Letras usadas: ['A', 'P', 'Y']
 [...]
 
 ¡FELICIDADES! Has adivinado la palabra: PYTHON
-```
+
 
 ## Notas Importantes
 
