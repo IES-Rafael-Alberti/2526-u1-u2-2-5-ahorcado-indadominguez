@@ -15,25 +15,27 @@ Fecha: [06/11/2025]
 
 def limpiar_pantalla():
     """
-    Imprime varias líneas en blanco para 'limpiar' la consola
-    y que el jugador 2 no vea la palabra introducida
+    Imprime varias líneas en blanco para simular la limpieza de pantalla,
+    de forma que el jugador 2 no vea la palabra introducida por el jugador 1.
     """
     print("\n" * 50)
 
 
 def solicitar_palabra():
     """
-    Solicita una palabra al jugador 1
-    La palabra debe tener mínimo 5 caracteres y solo contener letras
-    
+    Solicita una palabra al jugador 1.
+
+    La palabra debe tener al menos 5 caracteres y solo puede contener letras.
+    Se repetirá la solicitud hasta que se cumplan estas condiciones.
+
     Returns:
-        str: La palabra a adivinar en mayúsculas
+        str: La palabra a adivinar en mayúsculas.
     """
 
     palabra_valida = False
 
     while not palabra_valida:
-        palabra = input("Jugador 1, introduzca la palabra a adivinar ").strip()
+        palabra = input("Jugador 1, introduzca la palabra a adivinar: ").strip()
 
         if len(palabra) < 5:
             print("La palabra debe de tener al menos 5 caracteres.") 
@@ -47,14 +49,17 @@ def solicitar_palabra():
 
 def solicitar_letra(letras_usadas):
     """
-    Solicita una letra al jugador 2
-    La letra debe ser válida (solo una letra) y no estar ya usada
-    
+    Solicita una letra al jugador 2.
+
+    La letra debe cumplir:
+        - Ser una única letra (no números ni símbolos)
+        - No haber sido usada anteriormente
+
     Args:
-        letras_usadas (list): Lista de letras ya introducidas
-        
+        letras_usadas (list): Lista con las letras ya introducidas.
+
     Returns:
-        str: La letra introducida en mayúsculas
+        str: La letra introducida en mayúsculas.
     """
 
     letra_valida = False
@@ -77,36 +82,31 @@ def solicitar_letra(letras_usadas):
 
 def mostrar_estado(palabra_oculta, intentos, letras_usadas):
     """
-    Muestra el estado actual del juego
-    
+    Muestra el estado actual del juego: intentos, palabra y letras usadas.
+
     Args:
-        palabra_oculta (str): La palabra con _ y letras adivinadas
-        intentos (int): Número de intentos restantes
-        letras_usadas (list): Lista de letras ya usadas
+        palabra_oculta (str): La palabra con guiones bajos y letras descubiertas.
+        intentos (int): Número de intentos restantes.
+        letras_usadas (list): Lista de letras que el jugador ya ha intentado.
     """
-    print("\n==================================")
-    print(f"Intentos restantes: {intentos}")
-    print(f"Palabra: {' '.join(palabra_oculta)}")
-    
-    if len(letras_usadas) == 0:
-        print("Letras usadas: ninguna")
-    else:
-        print("Letras usadas:", ", ".join(letras_usadas))
+    print(f"\nIntentos restantes: {intentos}")
+    print("Palabra: " + " ".join(palabra_oculta))
+    print(f"Letras usadas: {', '.join(letras_usadas)}")
     
     print("==================================\n")
 
 
 def actualizar_palabra_oculta(palabra, palabra_oculta, letra):
     """
-    Actualiza la palabra oculta revelando las apariciones de la letra
-    
+    Actualiza la palabra oculta revelando las apariciones de una letra correcta.
+
     Args:
-        palabra (str): La palabra completa a adivinar
-        palabra_oculta (str): La palabra actual con _ y letras adivinadas
-        letra (str): La letra que se ha adivinado
-        
+        palabra (str): La palabra completa a adivinar.
+        palabra_oculta (str): La palabra actual con guiones bajos y letras descubiertas.
+        letra (str): La letra adivinada por el jugador.
+
     Returns:
-        str: La palabra oculta actualizada
+        str: La palabra oculta actualizada con las letras descubiertas.
     """
     lista_oculta = list(palabra_oculta)
 
@@ -119,7 +119,16 @@ def actualizar_palabra_oculta(palabra, palabra_oculta, letra):
 
 def jugar():
     """
-    Función principal que ejecuta el juego del ahorcado.
+    Ejecuta una partida del juego del ahorcado.
+
+    En esta función se gestiona el flujo principal del juego:
+    - Se solicita la palabra a adivinar al Jugador 1.
+    - Se inicializa la palabra oculta y los intentos disponibles.
+    - Se solicitan letras al Jugador 2 hasta que gane o pierda.
+    - Se muestra el estado del juego en cada intento.
+
+    Returns:
+        None
     """
     print("=== JUEGO DEL AHORCADO ===\n")
 
@@ -157,7 +166,14 @@ def jugar():
 
 def main():
     """
-    Punto de entrada del programa
+    Punto de entrada principal del programa.
+
+    Llama a la función `jugar()` para iniciar una partida del ahorcado.
+    Opcionalmente, se podría preguntar al usuario si desea jugar otra vez
+    al finalizar la partida.
+
+    Returns:
+        None
     """
     jugar_otra_vez = "s"
     while jugar_otra_vez.lower() == "s":
