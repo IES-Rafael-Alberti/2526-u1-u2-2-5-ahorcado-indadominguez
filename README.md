@@ -150,3 +150,5 @@ Profesor: revilofe
 
 ## Licencia
 Material educativo para uso académico
+
+## Debug

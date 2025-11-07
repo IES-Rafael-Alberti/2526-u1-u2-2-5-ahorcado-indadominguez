@@ -108,66 +108,63 @@ def actualizar_palabra_oculta(palabra, palabra_oculta, letra):
     Returns:
         str: La palabra oculta actualizada
     """
-    # TODO: Implementar la función
-    # - Recorrer la palabra original con un bucle for
-    # - Usar enumerate() para obtener índice y carácter
-    # - Si el carácter coincide con la letra, reemplazar en palabra_oculta
-    # - Puedes convertir palabra_oculta a lista, modificar y volver a string
-    pass
+    lista_oculta = list(palabra_oculta)
+
+    for i in range(len(palabra)):
+        if palabra[i] == letra:
+            lista_oculta[i] = letra
+
+    return "".join(lista_oculta)
 
 
 def jugar():
     """
-    Función principal que ejecuta el juego del ahorcado
+    Función principal que ejecuta el juego del ahorcado.
     """
     print("=== JUEGO DEL AHORCADO ===\n")
-    
-    # Configuración inicial
-    INTENTOS_MAXIMOS = 5
-    
-    # TODO: Solicitar la palabra al jugador 1
-    # palabra = solicitar_palabra()
-    
-    # TODO: Limpiar la pantalla para que el jugador 2 no vea la palabra
-    # limpiar_pantalla()
-    
-    # TODO: Inicializar variables del juego
-    # - palabra_oculta: string con guiones bajos (ej: "_ _ _ _ _")
-    # - intentos: número de intentos restantes
-    # - letras_usadas: lista vacía
-    # - juego_terminado: False
-    
-    print("Jugador 2: ¡Adivina la palabra!\n")
-    
-    # TODO: Bucle principal del juego
-    # - Mientras haya intentos y el juego no haya terminado:
-    #   1. Mostrar el estado actual
-    #   2. Solicitar una letra
-    #   3. Añadir la letra a letras_usadas
-    #   4. Si la letra está en la palabra:
-    #      - Actualizar palabra_oculta
-    #      - Mostrar mensaje de acierto
-    #      - Si ya no hay '_' en palabra_oculta, el jugador ha ganado
-    #   5. Si la letra NO está en la palabra:
-    #      - Restar un intento
-    #      - Mostrar mensaje de fallo
-    
-    # TODO: Mostrar mensaje final
-    # - Si ganó: mostrar felicitación y la palabra
-    # - Si perdió: mostrar mensaje de derrota y la palabra correcta
-    pass
 
+    INTENTOS_MAXIMOS = 5
+
+    palabra = solicitar_palabra()
+
+    limpiar_pantalla()
+
+    palabra_oculta = "_" * len(palabra)
+    intentos = INTENTOS_MAXIMOS
+    letras_usadas = []
+    juego_terminado = False
+
+    print("Jugador 2: ¡Adivina la palabra!\n")
+
+    while intentos > 0 and not juego_terminado:
+        mostrar_estado(palabra_oculta, intentos, letras_usadas)
+
+        letra = solicitar_letra(letras_usadas)
+        letras_usadas.append(letra)
+
+        if letra in palabra:
+            palabra_oculta = actualizar_palabra_oculta(palabra, palabra_oculta, letra)
+            print(f"¡Bien! La letra '{letra}' está en la palabra.")
+            
+            if "_" not in palabra_oculta:
+                juego_terminado = True
+                print("\n¡Felicidades! Has adivinado la palabra:", palabra)
+        else:
+            intentos -= 1
+            print(f"La letra '{letra}' no está en la palabra.")
+            if intentos == 0:
+                print("\nTe has quedado sin intentos. La palabra era:", palabra)
 
 def main():
     """
     Punto de entrada del programa
     """
-    jugar()
-    
-    # TODO (Opcional): Preguntar si quiere jugar otra vez
-    # jugar_otra_vez = input("\n¿Quieres jugar otra vez? (s/n): ")
-    # if jugar_otra_vez.lower() == 's':
-    #     main()
+    jugar_otra_vez = "s"
+    while jugar_otra_vez.lower() == "s":
+        jugar()
+        jugar_otra_vez = input("\n¿Quieres jugar otra vez? (s/n): ")
+
+    print("\nGracias por jugar al Ahorcado. ¡Hasta pronto!")
 
 
 if __name__ == "__main__":
